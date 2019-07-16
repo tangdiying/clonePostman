@@ -1,2 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="request-content">
+    <nz-select style="width: 120px;" [(ngModel)]="selectedValue" nzAllowClear>
+      <nz-option nzValue="GET" nzLabel="GET"></nz-option>
+      <nz-option nzValue="POST" nzLabel="POST"></nz-option>
+      <nz-option nzValue="PUT" nzLabel="PUT"></nz-option>
+      <nz-option nzValue="DELETE" nzLabel="DELETE"></nz-option>
+    </nz-select>
+    <input type="text" nz-input style="width: 300px;">
+    <button nz-button (click)="send()">send</button>
+    <div>
+      <textarea rows="4" nz-input [(ngModel)]="paramsValue" style="width: 450px"></textarea>
+    </div>
+    <div>
+      <textarea rows="4" nz-input [(ngModel)]="paramsValue" style="width: 450px"></textarea>
+    </div>
+  </div>
+  <div class="url-content">
+    <div *ngFor="let data of cascaderData">
+      <p>{{data.appname}}</p>
+      <app-cascader [dataList]="item" *ngFor="let item of data.groups"></app-cascader>
+    </div>
+  </div>
+</div>
 

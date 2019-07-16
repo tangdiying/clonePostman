@@ -1,0 +1,13 @@
+<div>
+  <div (click)="toggle()"> <span class="iconfont" 
+    [ngClass]="{'icon-3801wenjian': dataList['status'],'icon-1701wenjian':!dataList['status']}"
+    ></span>{{dataList['name']||dataList['title']}}</div>
+  <ul *ngIf="expend&&(dataList['subgroup']||dataList['trdetails'])">
+    <li *ngFor="let item of dataList['subgroup']">
+      <app-cascader [dataList]="item"></app-cascader>
+    </li>
+    <li *ngFor="let item of dataList['trdetails']">
+      <app-cascader [dataList]="item"></app-cascader>
+    </li>
+  </ul>
+</div>
